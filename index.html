@@ -1,0 +1,1408 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-DSNTL3N5XD"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-DSNTL3N5XD');
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>株式会社日本触媒 | 経営構造診断 | LIMITSHIFT 30</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;500;700&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --white: #f9f7f2;
+      --navy: #1a2640;
+      --navy-light: #243450;
+      --gold: #a07820;
+      --gold-light: #c49a30;
+      --text-dark: #1a2640;
+      --text-mid: #4a4744;
+      --text-light: #7a7470;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--white);
+      color: var(--text-dark);
+      font-family: 'Noto Serif JP', serif;
+      font-size: 15px;
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    /* ── Progress Bar ── */
+    #progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      width: 0%;
+      z-index: 9999;
+      transition: width 0.1s linear;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed;
+      top: 3px;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      height: 64px;
+      background: transparent;
+      transition: background 0.4s ease, backdrop-filter 0.4s ease;
+    }
+
+    nav.scrolled {
+      background: rgba(26, 38, 64, 0.92);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .nav-brand {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      color: var(--white);
+      font-weight: 400;
+    }
+
+    .nav-divider {
+      width: 1px;
+      height: 20px;
+      background: rgba(255,255,255,0.25);
+    }
+
+    .nav-sub {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 12px;
+      color: rgba(255,255,255,0.75);
+      letter-spacing: 0.08em;
+    }
+
+    .nav-cta {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: var(--white);
+      border: 1px solid rgba(160,120,32,0.6);
+      padding: 9px 20px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      background: transparent;
+    }
+
+    .nav-cta:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+    }
+
+    /* ── Hero ── */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 100vh;
+      padding-top: 64px;
+    }
+
+    .hero-left {
+      background: var(--white);
+      padding: 80px 60px 80px 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero-kicker {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .hero-company {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 24px;
+      letter-spacing: 0.05em;
+      line-height: 1.4;
+    }
+
+    .hero-h1 {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--navy);
+      line-height: 1.7;
+      margin-bottom: 32px;
+      letter-spacing: 0.03em;
+      border-left: 3px solid var(--gold);
+      padding-left: 20px;
+    }
+
+    .hero-sub {
+      font-size: 13px;
+      color: var(--text-mid);
+      line-height: 2;
+      margin-bottom: 36px;
+    }
+
+    .hero-meta {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--text-light);
+      letter-spacing: 0.1em;
+      line-height: 1.9;
+    }
+
+    .hero-right {
+      background: var(--navy);
+      padding: 80px 60px 80px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero-toc-title {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      color: rgba(255,255,255,0.4);
+      text-transform: uppercase;
+      margin-bottom: 28px;
+    }
+
+    .hero-toc {
+      list-style: none;
+      margin-bottom: 48px;
+    }
+
+    .hero-toc li {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding: 16px 0;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .hero-toc li:last-child {
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .toc-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 300;
+      color: var(--gold-light);
+      min-width: 36px;
+      font-style: italic;
+    }
+
+    .toc-label {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 13px;
+      color: rgba(255,255,255,0.8);
+      letter-spacing: 0.05em;
+    }
+
+    .hero-cta-btn {
+      display: block;
+      background: var(--gold);
+      color: var(--white);
+      text-align: center;
+      padding: 18px 32px;
+      text-decoration: none;
+      font-family: 'Noto Serif JP', serif;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      transition: background 0.3s ease;
+      margin-bottom: 16px;
+    }
+
+    .hero-cta-btn:hover { background: var(--gold-light); }
+
+    .hero-cta-sub {
+      font-size: 11px;
+      color: rgba(255,255,255,0.45);
+      text-align: center;
+      letter-spacing: 0.05em;
+      font-family: 'DM Mono', monospace;
+    }
+
+    /* ── Section common ── */
+    section { padding: 100px 80px; }
+
+    .section-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 26px;
+      font-weight: 500;
+      color: var(--navy);
+      line-height: 1.5;
+      margin-bottom: 48px;
+      letter-spacing: 0.03em;
+    }
+
+    /* fade-in */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── S01: 数値グリッド ── */
+    #s01 { background: var(--white); }
+
+    .s01-lead {
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 2.1;
+      max-width: 720px;
+      margin-bottom: 56px;
+    }
+
+    .num-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+
+    .num-card {
+      padding: 40px 36px;
+      background: #f0ece4;
+    }
+
+    .num-card.primary {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .num-card.pressure {
+      background: #e8e0d0;
+      grid-column: span 2;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      align-items: start;
+      gap: 40px;
+    }
+
+    .num-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .num-card.primary .num-label { color: var(--gold-light); }
+
+    .num-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 56px;
+      font-weight: 300;
+      color: var(--navy);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    .num-card.primary .num-value { color: var(--white); }
+    .num-card.pressure .num-value { font-size: 72px; }
+
+    .num-desc {
+      font-size: 12px;
+      color: var(--text-mid);
+      line-height: 1.9;
+    }
+
+    .num-card.primary .num-desc { color: rgba(255,255,255,0.7); }
+    .num-card.pressure .num-desc { color: var(--text-mid); }
+
+    .pressure-badge {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      background: var(--gold);
+      color: var(--white);
+      padding: 5px 12px;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+
+    /* ── S02: 構造解析 ── */
+    #s02 {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    #s02 .section-title { color: var(--white); }
+
+    .s02-intro {
+      font-size: 14px;
+      color: rgba(255,255,255,0.75);
+      line-height: 2.1;
+      max-width: 720px;
+      margin-bottom: 56px;
+    }
+
+    .structure-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      margin-bottom: 56px;
+    }
+
+    .struct-card {
+      background: rgba(255,255,255,0.05);
+      padding: 36px 32px;
+      border-top: 2px solid transparent;
+      transition: border-color 0.3s ease, background 0.3s ease;
+    }
+
+    .struct-card:hover {
+      border-color: var(--gold);
+      background: rgba(255,255,255,0.08);
+    }
+
+    .struct-icon {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 36px;
+      font-weight: 300;
+      color: var(--gold-light);
+      font-style: italic;
+      margin-bottom: 16px;
+    }
+
+    .struct-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .struct-text {
+      font-size: 13px;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.95;
+    }
+
+    .s02-closing {
+      border-left: 3px solid var(--gold);
+      padding: 28px 32px;
+      background: rgba(160,120,32,0.08);
+    }
+
+    .s02-closing p {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 14px;
+      color: rgba(255,255,255,0.85);
+      line-height: 2.2;
+      font-style: italic;
+    }
+
+    /* ── S03: 問いのプロセス ── */
+    #s03 { background: var(--white); }
+
+    .s03-lead {
+      font-size: 13px;
+      color: var(--text-mid);
+      line-height: 2.1;
+      max-width: 680px;
+      margin-bottom: 64px;
+      padding: 28px 32px;
+      background: #f0ece4;
+      border-left: 3px solid var(--gold);
+    }
+
+    .question-flow {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .q-step {
+      display: grid;
+      grid-template-columns: 80px 1fr;
+      border-top: 1px solid #ddd;
+    }
+
+    .q-step:last-child { border-bottom: 1px solid #ddd; }
+
+    .q-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px;
+      font-weight: 300;
+      color: var(--gold);
+      font-style: italic;
+      padding: 36px 20px 36px 0;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-end;
+    }
+
+    .q-content {
+      padding: 36px 0 36px 36px;
+      border-left: 1px solid #ddd;
+    }
+
+    .q-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 16px;
+      line-height: 1.6;
+    }
+
+    .q-desc {
+      font-size: 13px;
+      color: var(--text-mid);
+      line-height: 2;
+      margin-bottom: 20px;
+    }
+
+    /* 3尺度カード */
+    .scale-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2px;
+      margin-top: 8px;
+    }
+
+    .scale-card {
+      background: #f0ece4;
+      padding: 20px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      position: relative;
+    }
+
+    .scale-card:hover, .scale-card.active {
+      background: var(--navy);
+    }
+
+    .scale-card-title {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      color: var(--gold);
+      margin-bottom: 8px;
+    }
+
+    .scale-card:hover .scale-card-title,
+    .scale-card.active .scale-card-title { color: var(--gold-light); }
+
+    .scale-card-label {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 13px;
+      color: var(--navy);
+      font-weight: 500;
+      line-height: 1.5;
+    }
+
+    .scale-card:hover .scale-card-label,
+    .scale-card.active .scale-card-label { color: var(--white); }
+
+    .scale-detail {
+      display: none;
+      font-size: 12px;
+      color: rgba(255,255,255,0.72);
+      line-height: 1.85;
+      margin-top: 12px;
+    }
+
+    .scale-card.active .scale-detail { display: block; }
+    .scale-card:hover .scale-detail { display: block; }
+
+    .q-note {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: var(--text-light);
+      line-height: 1.8;
+      margin-top: 20px;
+      padding-top: 16px;
+      border-top: 1px solid #ddd;
+    }
+
+    /* ── S04: 呼び水仮説 ── */
+    #s04 {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    #s04 .section-title { color: var(--white); }
+
+    .s04-preface {
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+      line-height: 2;
+      max-width: 640px;
+      margin-bottom: 56px;
+    }
+
+    .hypothesis-box {
+      background: rgba(160,120,32,0.12);
+      border: 1px solid rgba(160,120,32,0.35);
+      padding: 52px 56px;
+      margin-bottom: 52px;
+      position: relative;
+    }
+
+    .hypothesis-box::before {
+      content: '"';
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 140px;
+      color: rgba(160,120,32,0.15);
+      position: absolute;
+      top: -20px;
+      left: 24px;
+      line-height: 1;
+    }
+
+    .hypothesis-text {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 17px;
+      font-weight: 400;
+      color: var(--white);
+      line-height: 2.2;
+      letter-spacing: 0.04em;
+      position: relative;
+    }
+
+    .evidence-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      margin-bottom: 48px;
+    }
+
+    .evidence-chip {
+      background: rgba(255,255,255,0.05);
+      padding: 28px 32px;
+    }
+
+    .chip-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 32px;
+      color: var(--gold-light);
+      font-style: italic;
+      font-weight: 300;
+      margin-bottom: 12px;
+      line-height: 1;
+    }
+
+    .chip-text {
+      font-size: 12px;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.95;
+    }
+
+    .s04-invite {
+      font-size: 14px;
+      color: rgba(255,255,255,0.6);
+      line-height: 2;
+      font-style: italic;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* ── S05: イノベーション思考OS ── */
+    #s05 { background: #f0ece4; }
+
+    .mission-text {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 17px;
+      color: var(--navy);
+      line-height: 2.2;
+      max-width: 720px;
+      margin-bottom: 64px;
+      padding: 36px 40px;
+      background: var(--white);
+      border-left: 4px solid var(--gold);
+    }
+
+    .os-compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin-bottom: 64px;
+    }
+
+    .os-col-header {
+      padding: 20px 32px;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .os-col-header.kaizen {
+      background: #ddd8ce;
+      color: var(--text-mid);
+    }
+
+    .os-col-header.innovation {
+      background: var(--navy);
+      color: var(--gold-light);
+    }
+
+    .os-row {
+      display: contents;
+    }
+
+    .os-cell {
+      padding: 20px 32px;
+      font-size: 13px;
+      line-height: 1.85;
+      border-top: 1px solid rgba(0,0,0,0.07);
+    }
+
+    .os-cell.kaizen {
+      background: #e8e4dc;
+      color: var(--text-mid);
+    }
+
+    .os-cell.innovation {
+      background: rgba(26,38,64,0.06);
+      color: var(--navy);
+      font-weight: 500;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2px;
+    }
+
+    .feature-card {
+      background: var(--white);
+      padding: 36px 28px;
+    }
+
+    .feature-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 48px;
+      color: var(--gold);
+      font-style: italic;
+      font-weight: 300;
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    .feature-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+
+    .feature-desc {
+      font-size: 12px;
+      color: var(--text-mid);
+      line-height: 1.9;
+    }
+
+    /* ── S06: CTA ── */
+    #s06 {
+      background: var(--white);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      padding: 0;
+    }
+
+    .cta-left {
+      padding: 100px 80px;
+    }
+
+    .cta-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 26px;
+      font-weight: 500;
+      color: var(--navy);
+      line-height: 1.6;
+      margin-bottom: 32px;
+      letter-spacing: 0.03em;
+    }
+
+    .cta-lead {
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 2.1;
+      margin-bottom: 28px;
+    }
+
+    .cta-value {
+      font-size: 13px;
+      color: var(--text-mid);
+      line-height: 2.1;
+      padding: 24px 28px;
+      background: #f0ece4;
+      border-left: 3px solid var(--gold);
+      margin-bottom: 0;
+    }
+
+    .cta-right {
+      background: var(--navy);
+      padding: 80px 60px;
+    }
+
+    .form-title {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 32px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      color: rgba(255,255,255,0.5);
+      display: block;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    .form-label span.req {
+      color: var(--gold);
+      margin-left: 4px;
+    }
+
+    .form-input,
+    .form-textarea,
+    .form-select {
+      width: 100%;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: var(--white);
+      padding: 12px 16px;
+      font-family: 'Noto Serif JP', serif;
+      font-size: 13px;
+      outline: none;
+      transition: border-color 0.3s ease;
+      appearance: none;
+    }
+
+    .form-input:focus,
+    .form-textarea:focus {
+      border-color: var(--gold);
+    }
+
+    .form-textarea { min-height: 80px; resize: vertical; }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .form-check {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .form-check input {
+      accent-color: var(--gold);
+      width: 16px;
+      height: 16px;
+    }
+
+    .form-check label {
+      font-size: 12px;
+      color: rgba(255,255,255,0.6);
+    }
+
+    .form-submit {
+      width: 100%;
+      background: var(--gold);
+      color: var(--white);
+      border: none;
+      padding: 18px;
+      font-family: 'Noto Serif JP', serif;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      margin-top: 24px;
+    }
+
+    .form-submit:hover { background: var(--gold-light); }
+
+    .form-footer {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      color: rgba(255,255,255,0.3);
+      text-align: center;
+      margin-top: 16px;
+      letter-spacing: 0.08em;
+      line-height: 1.8;
+    }
+
+    /* Submit overlay */
+    .submit-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(26,38,64,0.92);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .submit-overlay.active { display: flex; }
+
+    .overlay-card {
+      background: var(--white);
+      padding: 60px 56px;
+      text-align: center;
+      max-width: 460px;
+    }
+
+    .overlay-icon {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 64px;
+      color: var(--gold);
+      font-style: italic;
+      font-weight: 300;
+      margin-bottom: 20px;
+    }
+
+    .overlay-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 18px;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+
+    .overlay-text {
+      font-size: 13px;
+      color: var(--text-mid);
+      line-height: 2;
+    }
+
+    .overlay-close {
+      margin-top: 28px;
+      background: var(--navy);
+      color: var(--white);
+      border: none;
+      padding: 12px 36px;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      cursor: pointer;
+    }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--navy);
+      padding: 32px 80px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-left {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.12em;
+    }
+
+    .footer-right {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 11px;
+      color: rgba(255,255,255,0.4);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      nav { padding: 0 24px; }
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left { padding: 80px 32px 48px; }
+      .hero-right { padding: 48px 32px 64px; }
+      section { padding: 72px 32px; }
+      .num-grid { grid-template-columns: 1fr; }
+      .num-card.pressure { grid-column: span 1; grid-template-columns: 1fr; }
+      .structure-grid { grid-template-columns: 1fr; }
+      .scale-cards { grid-template-columns: 1fr; }
+      .evidence-grid { grid-template-columns: 1fr; }
+      .os-compare { grid-template-columns: 1fr; }
+      .os-col-header.kaizen { display: none; }
+      .os-cell.kaizen { display: none; }
+      .features-grid { grid-template-columns: 1fr; }
+      #s06 { grid-template-columns: 1fr; }
+      .cta-left { padding: 72px 32px 48px; }
+      .cta-right { padding: 48px 32px 64px; }
+      .form-row { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 12px; text-align: center; padding: 32px 24px; }
+      .hypothesis-box { padding: 36px 28px; }
+      .q-step { grid-template-columns: 56px 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Progress Bar -->
+<div id="progress-bar"></div>
+
+<!-- Submit Overlay -->
+<div class="submit-overlay" id="submit-overlay">
+  <div class="overlay-card">
+    <div class="overlay-icon">✓</div>
+    <div class="overlay-title">対話のお申し込みを受け付けました</div>
+    <p class="overlay-text">ご連絡いただきありがとうございます。<br>担当者より2営業日以内にご連絡いたします。</p>
+    <button class="overlay-close" onclick="document.getElementById('submit-overlay').classList.remove('active')">閉じる</button>
+  </div>
+</div>
+
+<!-- Nav -->
+<nav id="main-nav">
+  <div class="nav-logo">
+    <span class="nav-brand">Proudfoot Japan</span>
+    <div class="nav-divider"></div>
+    <span class="nav-sub">株式会社日本触媒　経営構造診断</span>
+  </div>
+  <a href="#s06" class="nav-cta">対話を申し込む</a>
+</nav>
+
+<!-- Hero -->
+<section class="hero" style="padding:0;">
+  <div class="hero-left">
+    <div class="hero-kicker fade-up">LIMITSHIFT 30 ─── 経営構造診断</div>
+    <div class="hero-company fade-up">株式会社日本触媒</div>
+    <h1 class="hero-h1 fade-up">「素材」を世界で作れる会社が、なぜ「市場」を自分で作れないのか。</h1>
+    <p class="hero-sub fade-up">
+      御社の中期経営計画・決算資料・技術資産・競合動向・パートナー構造を精査する中で、外部から一つの問いが生まれました。<br>
+      その問いが的外れかどうかを確かめるために、このページを書きました。<br>
+      答えを持ってきたのではありません。問いを持ってきました。
+    </p>
+    <div class="hero-meta fade-up">
+      株式会社日本触媒（4114・東証プライム）<br>
+      診断基準日：2025年4月<br>
+      根拠資料：中期経営計画2027・有価証券報告書・採用サイト・IEA DAC資料・矢野経済研究所
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-toc-title">Contents</div>
+    <ul class="hero-toc fade-up">
+      <li>
+        <span class="toc-num">01</span>
+        <span class="toc-label">外部から見えた数値</span>
+      </li>
+      <li>
+        <span class="toc-num">02</span>
+        <span class="toc-label">構造の解析</span>
+      </li>
+      <li>
+        <span class="toc-num">03</span>
+        <span class="toc-label">解くべき問いのプロセス</span>
+      </li>
+      <li>
+        <span class="toc-num">04</span>
+        <span class="toc-label">御社に投げたい問い</span>
+      </li>
+    </ul>
+    <a href="#s06" class="hero-cta-btn fade-up">問いが的外れかどうかを、確かめたい</a>
+    <p class="hero-cta-sub fade-up">「違います」という答えも、私たちにとっては大切な対話です。</p>
+  </div>
+</section>
+
+<!-- S01: 外部から見えた数値 -->
+<section id="s01">
+  <div class="section-label fade-up">Section 01</div>
+  <h2 class="section-title fade-up">外部から見えた数値と問い</h2>
+  <p class="s01-lead fade-up">
+    公開されている数値を並べたとき、一つの問いが生まれました。技術力は本物だ。ではなぜ、それが収益という形で実現されていないのか。数値の背後にある構造に、外部から問いを立ててみました。
+  </p>
+
+  <div class="num-grid fade-up">
+    <div class="num-card primary">
+      <div class="num-label">前中計ソリューションズ事業　利益達成率（営業利益ベース）</div>
+      <div class="num-value">27<span style="font-size:28px">%</span></div>
+      <p class="num-desc">目標170億円 → 実績46億円。最も力を入れた事業が最も大きく未達に終わった3年間。野田和宏社長は中計2027の公式資料に「事業化・収益化は遅延」と自ら明記した。「基盤は整った」という言葉の裏に、収益化が3年分遅延した事実がある。</p>
+    </div>
+
+    <div class="num-card">
+      <div class="num-label">ROE（株主資本利益率）2024年度実績</div>
+      <div class="num-value">4.3<span style="font-size:28px">%</span></div>
+      <p class="num-desc">前中計目標7.5%に対し▲3.2pt。新中計2027でも再びROE 7%以上を目標に掲げているが、2025年度見通しは再び4%台。同じ数値目標を2サイクル連続で掲げ、2サイクル連続で届いていない。株主資本比率70.5%という「お金を持ちすぎて稼げていない」財務構造が根本にある。</p>
+    </div>
+
+    <div class="num-card">
+      <div class="num-label">イオネル（LiFSI）新工場への単一投資額</div>
+      <div class="num-value">375<span style="font-size:28px">億</span></div>
+      <p class="num-desc">新中計期間のソリューションズ事業向け投資総額900億円の約42%を、一製品・一工場に集中投下。2028年7月稼働予定で国内生産能力を現状比11倍に引き上げる計画。同時に、中国JVパートナーのCapchem（出資比率51.19%）は自社でLiFSI製造を進める当事者でもある。</p>
+    </div>
+
+    <div class="num-card pressure">
+      <div>
+        <div class="pressure-badge">TIME PRESSURE</div>
+        <div class="num-value">2028</div>
+      </div>
+      <div>
+        <div class="num-label">福岡・イオネル新工場稼働　臨界点</div>
+        <p class="num-desc">
+          375億円の工場が竣工するその年、川下顧客（電解液メーカー・電池セルメーカー）のAVL登録が完了していない場合、「需要なき供給能力」として固定資産が積み上がる。車載LIBのAVL登録は材料評価→セル評価→車両評価という多段階プロセスで通常3〜5年を要する。<br><br>
+          AVL問題（川下採用の遅さ）とCapchem競合化リスク（販路の将来的な消滅）は、2028年時点で同時に顕在化する可能性がある。前中計でも同じ構造で、エネルギー領域は▲15億円の未達に終わった。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S02: 構造の解析 -->
+<section id="s02">
+  <div class="section-label fade-up" style="color:rgba(160,120,32,0.7)">Section 02</div>
+  <h2 class="section-title fade-up">なぜ「素材」は作れるのに、「市場」は作れないのか</h2>
+  <p class="s02-intro fade-up">
+    表面の数字だけでなく、4つの構造層から見えることがある。ビジネスモデル・人材・財務・組織文化、それぞれの層に、同じ問いが埋め込まれているように見えた。
+  </p>
+
+  <div class="structure-grid fade-up">
+    <div class="struct-card">
+      <div class="struct-icon">Ⅰ</div>
+      <div class="struct-label">ビジネスモデル</div>
+      <p class="struct-text">アクリル酸垂直統合×世界トップSAPという構造は「品質で選ぶ顧客が存在する」という前提の上に成立している。LiFSI事業でも、技術と設備は自社が持つが、市場との接点は常に外部パートナー頼みという構造が固定している。SAPで経験した「世界トップ技術が、中国メーカーの垂直統合模倣によって価格競争に引き込まれた」軌跡を、今度は自らパートナーに技術を渡すことで再演しようとしている可能性がある。</p>
+    </div>
+
+    <div class="struct-card">
+      <div class="struct-icon">Ⅱ</div>
+      <div class="struct-label">人材</div>
+      <p class="struct-text">エナジー研究部では「イオネルの拡販と、イオネルに次ぐ製品を生み出すことがミッション」と社員が語る（採用サイトインタビュー）。「拡販」という言葉が示すとおり、現在はまだ採用活動の段階にある。前中計で100名を増員したが、電解液メーカー・電池セルメーカーのAVL評価プロセスを内側から動かせる人材の採用は見当たらない。</p>
+    </div>
+
+    <div class="struct-card">
+      <div class="struct-icon">Ⅲ</div>
+      <div class="struct-label">財務</div>
+      <p class="struct-text">株主資本比率70.5%という高い自己資本構造はROEが4%台に留まる構造的原因だ。375億円の設備投資を行いながら配当性向100%という高還元を同時に維持しようとしており、イオネルの収益化が2028年工場稼働まで実質ゼロが続く場合、CFは極めてタイトになる。計画を下回った場合の選択肢はすでに狭い。</p>
+    </div>
+
+    <div class="struct-card">
+      <div class="struct-icon">Ⅳ</div>
+      <div class="struct-label">組織文化</div>
+      <p class="struct-text">「技術立社」を標榜し、世界で初めてLiFSI工業化（2013年）・プロピレン直接酸化法によるアクリル酸工業化（1970年）という先行者実績を持つ。この誇りは本物だ。しかし同時に、「技術が良ければ市場は来る」という素材待ちの因果モデルが組織の深層に根付いている可能性がある。野田社長が「スピーディーに高機能素材の事業化を図ります」と中計に記したこと自体、これまでがスピーディーでなかったという自己批判を含んでいる。</p>
+    </div>
+  </div>
+
+  <div class="s02-closing fade-up">
+    <p>
+      「これは外部公開情報から組み立てた仮説に過ぎない。<br>
+      御社の内側から見えている景色は、どう違うか──<br>
+      そこに、私たちが最もお伺いしたいことがある。」
+    </p>
+  </div>
+</section>
+
+<!-- S03: 問いのプロセス -->
+<section id="s03">
+  <div class="section-label fade-up">Section 03</div>
+  <h2 class="section-title fade-up">解くべき問いのプロセス</h2>
+
+  <div class="s03-lead fade-up">
+    多くのJTCが、「本当に解くべき問い」を定義しないまま、既存路線の延長に戦略を描く。LimitShift 30が最初のゴールとするのは、経営者が自らの前提を疑い、「解くべき問い」をゼロから立て直せる状態になるようご支援することだ。
+  </div>
+
+  <div class="question-flow fade-up">
+    <div class="q-step">
+      <div class="q-num">1</div>
+      <div class="q-content">
+        <div class="q-title">勝てる土俵を、どう定義するか。</div>
+        <p class="q-desc">土俵の定義とは「社会的必然性・経営者の意思決定構造・自社の固有資産」の3つが交差する領域を指す。その交差点を、御社はどう定義しているか。</p>
+      </div>
+    </div>
+
+    <div class="q-step">
+      <div class="q-num">2</div>
+      <div class="q-content">
+        <div class="q-title">その土俵の中で、どの前提を倒置すると新しい市場が生まれるか。</div>
+        <p class="q-desc">業界の常識として受け入れてきた前提を意図的に崩したとき、初めて競合が存在しない空間が生まれる。御社の事業仮説は、どの前提の上に立っているか。</p>
+      </div>
+    </div>
+
+    <div class="q-step">
+      <div class="q-num">3</div>
+      <div class="q-content">
+        <div class="q-title">そのアイデアは、3つの尺度に耐えられるか。</div>
+        <p class="q-desc">各カードをクリックして詳細を確認。</p>
+
+        <div class="scale-cards">
+          <div class="scale-card" onclick="toggleCard(this)">
+            <div class="scale-card-title">尺度①</div>
+            <div class="scale-card-label">前提倒置性</div>
+            <div class="scale-detail">前提を崩したとき自社だけが有利になる構造があるか。競合も同様に崩せる前提は、前提倒置とは言えない。</div>
+          </div>
+          <div class="scale-card" onclick="toggleCard(this)">
+            <div class="scale-card-title">尺度②</div>
+            <div class="scale-card-label">代替不可性</div>
+            <div class="scale-detail">模倣できない理由が技術を超えたレイヤーにあるか。特許・工程・知識構造・顧客関係──どのレイヤーが本当の護城河か。</div>
+          </div>
+          <div class="scale-card" onclick="toggleCard(this)">
+            <div class="scale-card-title">尺度③</div>
+            <div class="scale-card-label">自動拡張性</div>
+            <div class="scale-detail">最初の顧客が次の顧客を呼ぶメカニズムがあるか。採用されるほど採用されやすくなる構造が、素材事業に設計されているか。</div>
+          </div>
+        </div>
+
+        <p class="q-note">①が弱ければ②も③も必然的に崩れる。これが私たちが繰り返し見てきた構造だ。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S04: 呼び水仮説 -->
+<section id="s04">
+  <div class="section-label fade-up" style="color:rgba(160,120,32,0.7)">Section 04</div>
+  <h2 class="section-title fade-up">御社に投げたい問いがある</h2>
+
+  <p class="s04-preface fade-up">
+    上記の問いのプロセスを、御社に当てはめて考えてみた。答えは出していない。ただ、一つの問いが浮かび上がってきた。
+  </p>
+
+  <div class="hypothesis-box fade-up">
+    <p class="hypothesis-text">
+      日本触媒が世界で唯一持つPEI（ポリエチレンイミン）の気相合成技術を、「LiFSIの次の柱」としてではなく、「DAC（直接空気回収）における吸収材の共同事業者ポジション」として読み直したとき──つまり素材を売るのではなく、素材の性能が生むカーボンクレジットを受け取る側に立つとしたら──御社の事業ポートフォリオの設計は変わるか。
+    </p>
+  </div>
+
+  <div class="evidence-grid fade-up">
+    <div class="evidence-chip">
+      <div class="chip-num">01</div>
+      <p class="chip-text">野田和宏社長は中計2027の公式資料に「事業化・収益化は遅延」と自ら明記した。「変革加速」を掲げながらソリューションズ事業の利益構成比は10年間24%から動いていない。これは実行力の問題ではなく、「技術が良ければ市場は来る」という因果モデルそのものが採用スピードを規定している可能性がある。</p>
+    </div>
+
+    <div class="evidence-chip">
+      <div class="chip-num">02</div>
+      <p class="chip-text">IEAは2050年に年間9.8億トンのDAC回収が必要と試算し、必要投資は1,200億ドル/年と見積もる。この市場でCO2を化学吸着するアミン系素材の工業量産サプライヤーは2025年時点で事実上存在しない。日本触媒だけが世界で唯一、気相脱水反応でエチレンイミンを製造しPEI（ポリエチレンイミン）を安定量産できる。この技術はLiFSI製造とは異なり、Capchemが一切関与しない独自プロセスだ。</p>
+    </div>
+
+    <div class="evidence-chip">
+      <div class="chip-num">03</div>
+      <p class="chip-text">中国JV・湖南福邦の筆頭株主はCapchem（51.19%）であり、日本触媒は少数株主（38.0%）だ。CapchemはLiFSIの最大購買者であると同時に、自社でLiFSI製造を進める当事者でもある。AVL問題とCapchem競合化リスクは、2028年の工場稼働時点で同時に顕在化する可能性がある。両方が重なった時の財務インパクトを、この会社はまだ計算していないかもしれない。</p>
+    </div>
+
+    <div class="evidence-chip">
+      <div class="chip-num">04</div>
+      <p class="chip-text">矢野経済研究所（2025年）によると、LiB主要4部材市場では中国メーカーの出荷数量シェアが四部材全てで9割を超え、2024年も金額ベースで2年連続前年割れが続いている。SAPで経験した「世界トップ技術が価格競争に引き込まれた」軌跡を、イオネルで再演しようとしているかもしれない。一方、DAC用アミン吸収材市場では、こうした中国メーカーの量産体制が存在しない。土俵が、根本的に違う。</p>
+    </div>
+  </div>
+
+  <p class="s04-invite fade-up">
+    「この問いに的外れな点があれば、ご指摘いただきたい。答えを持ってきたのではありません。」
+  </p>
+</section>
+
+<!-- S05: イノベーション思考OS -->
+<section id="s05">
+  <div class="section-label fade-up">Section 05</div>
+  <h2 class="section-title fade-up">イノベーション思考OSを、組織に植え付ける</h2>
+
+  <div class="mission-text fade-up">
+    不確実性を武器に変える触媒。Proudfoot Japanは、答えを売る組織ではない。「解くべき問いを自力で立て、自力で解ける組織」をつくることが、私たちの本当の提供価値です。
+  </div>
+
+  <div class="os-compare fade-up">
+    <div class="os-col-header kaizen">カイゼンOS（多くのJTCの現状）</div>
+    <div class="os-col-header innovation">イノベーション思考OS</div>
+
+    <div class="os-cell kaizen">現在の延長線上で改善を追求する</div>
+    <div class="os-cell innovation">前提を意図的に崩し、競合のいない土俵を定義できる</div>
+
+    <div class="os-cell kaizen">前提を疑わず、与えられた問いを解く</div>
+    <div class="os-cell innovation">「解くべき問い」を自力で立て、検証プロセスを自走できる</div>
+
+    <div class="os-cell kaizen">不確実性をリスクとして排除しようとする</div>
+    <div class="os-cell innovation">不確実性を、競合との差を生む源泉として使える</div>
+
+    <div class="os-cell kaizen">イノベーションの芽がカイゼンの効率で刈り取られる</div>
+    <div class="os-cell innovation">経営者自身が「動ける問い」を持つ状態になる</div>
+  </div>
+
+  <div class="features-grid fade-up">
+    <div class="feature-card">
+      <div class="feature-num">①</div>
+      <div class="feature-title">問いファースト</div>
+      <p class="feature-desc">「答え」から始めるのではなく、「解くべき問い」から設計する。問いの精度が、戦略の精度を決める。</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-num">②</div>
+      <div class="feature-title">触媒としての伴走</div>
+      <p class="feature-desc">私たちは答えを渡す組織ではない。経営者の思考プロセスに触媒として作用し、自力で走れる状態をつくる。</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-num">③</div>
+      <div class="feature-title">OSの植え付けまで</div>
+      <p class="feature-desc">診断で終わらない。「前提倒置性・代替不可性・自動拡張性」という思考OSが、組織に定着するまでを伴走する。</p>
+    </div>
+  </div>
+</section>
+
+<!-- S06: CTA -->
+<section id="s06" style="padding:0;">
+  <div class="cta-left">
+    <h2 class="cta-title fade-up">問いが的外れかどうかを、<br>教えてください</h2>
+    <p class="cta-lead fade-up">
+      このページに書いたことは、外部公開情報だけから見えたものです。内側からしか見えないことの方が、はるかに多いはずです。「的外れです」という答えも、私たちにとっては大切な対話です。
+    </p>
+    <p class="cta-value fade-up">
+      私たちが30分でお伝えしたいのは、答えではありません。御社がまだ解いていない問いがあるとしたら、それはどこか──その問いを、一緒に見つけることが、この対話の目的です。
+    </p>
+  </div>
+
+  <div class="cta-right">
+    <div class="form-title">30分の対話を申し込む</div>
+    <form id="contact-form" action="https://formspree.io/f/mjgalvdz" method="POST">
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">お名前<span class="req">*</span></label>
+          <input type="text" name="name" class="form-input" required>
+        </div>
+        <div class="form-group">
+          <label class="form-label">会社名<span class="req">*</span></label>
+          <input type="text" name="company" class="form-input" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">役職</label>
+        <input type="text" name="title" class="form-input">
+      </div>
+      <div class="form-group">
+        <label class="form-label">メールアドレス<span class="req">*</span></label>
+        <input type="email" name="email" class="form-input" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label">候補日①<span class="req">*</span></label>
+        <input type="text" name="date1" class="form-input" placeholder="例：5月15日（木）午後" required>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">候補日②</label>
+          <input type="text" name="date2" class="form-input" placeholder="例：5月16日（金）午前">
+        </div>
+        <div class="form-group">
+          <label class="form-label">候補日③</label>
+          <input type="text" name="date3" class="form-input" placeholder="例：5月19日（月）終日">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="form-check">
+          <input type="checkbox" name="email_adjust" id="email_adjust">
+          <label for="email_adjust">メールで日程を調整する</label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">事前コメント（任意）</label>
+        <textarea name="comment" class="form-textarea" placeholder="的外れな点のご指摘、ご質問など、何でもお書きください。"></textarea>
+      </div>
+      <button type="submit" class="form-submit">対話を申し込む</button>
+      <p class="form-footer">売り込みではありません。私たちの問いが的外れなら、そう言っていただければ十分です。</p>
+    </form>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-left">Proudfoot Japan ─── LIMITSHIFT 30</div>
+  <div class="footer-right">本ページは株式会社日本触媒　新規事業推進本部長　万木 啓嗣 様専用の資料です</div>
+</footer>
+
+<script>
+  // Progress bar
+  window.addEventListener('scroll', () => {
+    const winHeight = document.documentElement.scrollHeight - window.innerHeight;
+    const scrolled = (window.scrollY / winHeight) * 100;
+    document.getElementById('progress-bar').style.width = scrolled + '%';
+
+    // Nav scroll
+    const nav = document.getElementById('main-nav');
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Intersection Observer fade-up
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+  // Scale card toggle
+  function toggleCard(card) {
+    const wasActive = card.classList.contains('active');
+    document.querySelectorAll('.scale-card').forEach(c => c.classList.remove('active'));
+    if (!wasActive) card.classList.add('active');
+  }
+
+  // Form submit via Ajax
+  const form = document.getElementById('contact-form');
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const data = new FormData(form);
+    try {
+      const res = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (res.ok) {
+        document.getElementById('submit-overlay').classList.add('active');
+        form.reset();
+      }
+    } catch (err) {
+      console.error(err);
+    }
+  });
+</script>
+
+</body>
+</html>
